@@ -17,12 +17,13 @@ public class Student {
     private String code;
     private String name;
     private String career;
-    private ArrayList<Asignament> asignaments;
+    private ArrayList<Enrolment> enrolments;
 
     Student(String name, String code, String career) {
         this.code = code;
         this.name = name;
         this.career = career;
+        this.enrolments = new ArrayList();
     }
 
     public String getCode() {
@@ -49,12 +50,40 @@ public class Student {
         this.career = career;
     }
 
-    public ArrayList<Asignament> getAsignaments() {
-        return asignaments;
+    public ArrayList<Enrolment> getEnrolments() {
+        return enrolments;
     }
-
-    public void setAsignaments(ArrayList<Asignament> asignaments) {
-        this.asignaments = asignaments;
+    
+    public boolean addCourseToEnrolments( String period, Course course ){
+        
+        if( !isEnrolledToCourse(course) ){
+            this.enrolments.add( new Enrolment(period, course) );
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean isEnrolledToCourse(Course course){
+        for (Enrolment enrolment : enrolments) {
+            if(enrolment.getCourse().getCode().equals( course.getCode() )){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public String getEnrolledCoursesList(){
+        String coursesList = "";
+        Course course = null;
+        
+        for (Enrolment enrolment : enrolments) {
+            course = enrolment.getCourse();
+            coursesList += "[ "+ course.getCode() +" ] " + course.getName() + "\n";
+        }
+        
+        return coursesList;
     }
  
     

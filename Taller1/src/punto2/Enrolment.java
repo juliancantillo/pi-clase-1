@@ -10,12 +10,17 @@ package punto2;
  *
  * @author Usuario
  */
-class Asignament {
+class Enrolment {
     
     private String period;
     private Course course;
     private double calification;
 
+    public Enrolment(String period, Course course) {
+        this.period = period;
+        this.course = course;
+    }
+    
     public String getPeriod() {
         return period;
     }
