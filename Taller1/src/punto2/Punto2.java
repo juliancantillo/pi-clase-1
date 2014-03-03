@@ -4,24 +4,21 @@
  * and open the template in the editor.
  */
 
-package punto1;
+package punto2;
 
 /**
  * Universidad del Valle
  * @author Julian Andres Cantillo // cod: 1431263 - 3743
  */
-public class Punto1 {
+public class Punto2 {
     
-    GUI gui;
-
-    public Punto1() {
-        gui = new GUI();
+    public Punto2() {
     }
     
     /**
     * @param args the command line arguments
     */
     public static void main(String[] args) {
-        Punto1 obj = new Punto1();
+        Punto2 obj = new Punto2();
     }
 }

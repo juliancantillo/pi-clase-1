@@ -54,6 +54,41 @@ public class Booking {
         }
     }
     
+    public String availableComputers(){
+        int[] available = new int[ Booking.computers.length ];
+        
+        for (int i = 0; i < Booking.computers.length; i++) {
+            int[] tmpComputers = computers[i];
+            for (int j = 0; j < tmpComputers.length; j++) {
+                if( tmpComputers[j] == 0 ){
+                    available[i]++;
+                }
+            }
+        }
+        
+        String response = "Sala 1: " + available[0] + "\n"
+                + "Sala 2: " + available[1] + "\n"
+                + "Sala 3: " + available[2];
+        
+        return response;
+    }
+        
+    public String takenComputers(){
+        int taken = 0;
+        
+        for (int[] tmpComputers : Booking.computers) {
+            for (int i : tmpComputers) {
+                if( i == 1 ){
+                    taken++;
+                }  
+            }
+        }
+        
+        String response = "Turnos asignados: " + taken;
+        
+        return response;
+    }
+    
     public static int[][] getComputers() {
         return computers;
     }
