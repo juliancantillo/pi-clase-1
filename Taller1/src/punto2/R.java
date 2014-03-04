@@ -41,7 +41,9 @@ public class R {
             STR_STUDENT_IS_ALL_READY_ENROLLED="El estudiante ya está matriculado a ese curso",
             STR_ENROLLED_STUDENTS_LIST="Listado de estudiantes matriculados al curso %s (%s)\n%s",
             STR_NOT_FOUND_ENROLLED_STUDENTS="No se encontráron estudiantes matriculados al curso %s (%s)",
-            STR_STUDENT_ENROLLED_COURSES="El estudiante %s (%s) está matriculado a:\n",
-            STR_STUDENT_HAS_NOT_ENROLLED_COURSES="El estudiante %s no tiene ningun curso patriculado"
+            STR_STUDENT_ENROLLED_COURSES="El estudiante %s (%s) está matriculado a:\n%s\nEn que curso desea realizar el registro de la Calificación",
+            STR_STUDENT_HAS_NOT_ENROLLED_COURSES="El estudiante %s no tiene ningun curso patriculado",
+            STR_SEARCH_COURSE_BY_PERIOD="Periodo académico del curso",
+            STR_RECORD_SCORE="Registrar una calificación\nEstudiante: %s (%s)\nCurso: %s (%s)\nLa nota se debe escribir con al menos un decimal\nEjemplo: 3.0"
             ;
 }

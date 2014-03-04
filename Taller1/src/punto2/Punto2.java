@@ -40,6 +40,7 @@ public class Punto2 {
                     break;
                 
                 case 4:
+                    controller.recordScoreToStudent();
                     break;
                 
                 case 5:

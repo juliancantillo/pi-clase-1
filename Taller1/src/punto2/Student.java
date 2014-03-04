@@ -56,7 +56,7 @@ public class Student {
     
     public boolean addCourseToEnrolments( String period, Course course ){
         
-        if( !isEnrolledToCourse(course) ){
+        if( !isEnrolledToCourse(period, course) ){
             this.enrolments.add( new Enrolment(period, course) );
             return true;
         }else{
@@ -64,9 +64,9 @@ public class Student {
         }
     }
     
-    public boolean isEnrolledToCourse(Course course){
+    public boolean isEnrolledToCourse(String period, Course course){
         for (Enrolment enrolment : enrolments) {
-            if(enrolment.getCourse().getCode().equals( course.getCode() )){
+            if(enrolment.getCourse().getCode().equals( course.getCode() ) && enrolment.getPeriod().equals(period) ){
                 return true;
             }
         }
@@ -74,9 +74,19 @@ public class Student {
         return false;
     }
     
+    public Enrolment getEnrolmentByCourse(String period, Course course){
+        for (Enrolment enrolment : enrolments) {
+            if(enrolment.getCourse().getCode().equals( course.getCode() ) && enrolment.getPeriod().equals(period) ){
+                return enrolment;
+            }
+        }
+        
+        return null;
+    }
+    
     public String getEnrolledCoursesList(){
         String coursesList = "";
-        Course course = null;
+        Course course;
         
         for (Enrolment enrolment : enrolments) {
             course = enrolment.getCourse();
@@ -84,6 +94,33 @@ public class Student {
         }
         
         return coursesList;
+    }
+    
+    public String getEnrolledCoursesList(String period){
+        String coursesList = "";
+        Course course;
+        
+        for (Enrolment enrolment : enrolments) {
+            if( enrolment.getPeriod().equals(period) ){
+                course = enrolment.getCourse();
+                coursesList += "[ "+ course.getCode() +" ] " + course.getName() + "\n";
+            }
+        }
+        
+        return coursesList;
+    }
+    
+    public boolean recordScore(double score, String period, Course course){
+        Course c;
+        for (Enrolment enrolment : enrolments) {
+            c = enrolment.getCourse();
+            if( c.getCode().equals( course.getCode() ) && enrolment.getPeriod().equals(period) ){
+                enrolment.setScore(score);
+                return true;
+            }
+        }
+        
+        return false;
     }
  
     

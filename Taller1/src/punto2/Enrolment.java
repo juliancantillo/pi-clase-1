@@ -14,7 +14,7 @@ class Enrolment {
     
     private String period;
     private Course course;
-    private double calification;
+    private double score;
 
     public Enrolment(String period, Course course) {
         this.period = period;
@@ -37,12 +37,12 @@ class Enrolment {
         this.course = course;
     }
 
-    public double getCalification() {
-        return calification;
+    public double getScore() {
+        return score;
     }
 
-    public void setCalification(double calification) {
-        this.calification = calification;
+    public void setScore(double score) {
+        this.score = score;
     }
     
 }
